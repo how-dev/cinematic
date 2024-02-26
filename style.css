@@ -1,0 +1,62 @@
+body {
+  margin: 0;
+}
+
+#root {
+  background-color: #f0f0f0;
+  padding: 20px;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.base {
+  width: 20px;
+  height: 20px;
+  background-color: #fff;
+  border-radius: 50%;
+  border: 1px solid #000;
+  position: relative;
+}
+
+.rope {
+  width: 1px;
+  background-color: #000;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%);
+  transform-origin: top;
+  animation: RopeSpinAroundBase 2s infinite linear;
+}
+
+.rope.reverse {
+  animation-direction: reverse;
+}
+
+.rope > div.base {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.way {
+  width: 2px;
+  height: 2px;
+  background-color: #000;
+  border-radius: 1000px;
+  position: absolute;
+}
+
+
+@keyframes RopeSpinAroundBase {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
